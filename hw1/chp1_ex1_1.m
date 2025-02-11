@@ -61,6 +61,8 @@ cartesianTrajectory = fillTrajectory(time, initialPosition, waypoints, targetPos
 
 % Plot resulting trajectory
 figure;
+scatter3(waypoints(1,:), waypoints(2,:), waypoints(3,:), 100, 'r', 'filled')
+hold on
 plot3(cartesianTrajectory(1,:), cartesianTrajectory(2,:), cartesianTrajectory(3,:))
 axis equal; grid on;
 xlabel('X [m]'); ylabel('Y [m]'); zlabel('Z [m]');

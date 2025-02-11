@@ -32,7 +32,8 @@ robot = RobotisWrapper();
 optimal_control = MPC4DOF(robot);
 
 % define target position, maximal time and cost function for the solver
-initial_joint_configuration = [0; 0; 0; 0];
+% initial_joint_configuration = [0; 0; 0; 0];
+initial_joint_configuration = [0.1; 0.1; 0.1; 0.1];
 target_position = [0.1; -0.3; 0.1];
 max_time = 3;
 
@@ -55,7 +56,7 @@ disp("Press space to continue..."); pause(); close all;
 %% ------ Write your code in addDisturbance.m for Question 2 ------
 %  vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv %%
 
-[disturbance_idx, q_mid] = addDisturbance(optimal_solution_full, 2, 10);
+[disturbance_idx, q_mid] = addDisturbance(optimal_solution_full, 3, 90);
 disp(disturbance_idx)
 
 %  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ %%
