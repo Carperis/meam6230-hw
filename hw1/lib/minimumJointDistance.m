@@ -16,6 +16,11 @@
 % which the robot arm should reach a specified target
 function cost = minimumJointDistance(X, U, e, data, robot, target)
     %%%%%%%%%%%%%%%%%%%%%%%%%
-    % Fill student code here
+    cost = 0;
+    N = data.PredictionHorizon;
+    for n = 1:N
+        dq = U(n, 1:4);
+        cost = cost + norm(dq)^2;
+    end
     %%%%%%%%%%%%%%%%%%%%%%%%%
 end

@@ -15,8 +15,8 @@
 % - U(any index, 5): final time of the trajectory (constant for all timesteps), at 
 % which the robot arm should reach a specified target
 function cost = minimumTime(X, U, e, data, robot, target)
-
     %%%%%%%%%%%%%%%%%%%%%%%%%
-    % Fill student code here
+    Tf = U(end);
+    cost = Tf;
     %%%%%%%%%%%%%%%%%%%%%%%%%
 end

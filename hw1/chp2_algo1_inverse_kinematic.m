@@ -27,13 +27,14 @@ addpath(genpath(fullfile(filepath, 'lib')));
 robot = RobotisWrapper();
 
 % Experiment parameters
-targetPosition = [0.25; 0.2; 0];
+% targetPosition = [0.25; 0.2; 0];
+targetPosition = [0.385; 0; 0];
 maxJointSpeed = 0.3;
 toleranceDistance = 1e-3;
 %% Compute trajectories
 
 % Pre-initialize dataset variable 'trajectories'
-nTraj = 1;      % Number of trajectories
+nTraj = 10;      % Number of trajectories
 nPoints = 20;   % Number of points per trajectory
 trajectories = nan(8, nPoints, nTraj); % Stores joint position and velocity
 for iTraj=1:nTraj

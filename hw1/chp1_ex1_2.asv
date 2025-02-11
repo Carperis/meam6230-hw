@@ -31,9 +31,9 @@ addpath(genpath(fullfile(filepath, 'lib')));
 robot = RobotisWrapper();
 
 optimal_control = MPC4DOF(robot);
-target_position = [0.1; -0.3; 0.1];
+% target_position = [0.1; -0.3; 0.1];
 % original_position = [0.3; 0.0; 0.2];
-% target_position = [0.4; 0.0; 0.1]; % 2b and 2c will generate the same trajectory
+target_position = [0.4; 0.0; 0.1]; % 
 
 
 
@@ -53,12 +53,12 @@ target_position = [0.1; -0.3; 0.1];
 % disp("Press space to continue..."); pause();
 
 %% Task 2b: Minimum Cartesian distance
-% start = tic; 
-% optimal_control.nlSolver.Optimization.CustomCostFcn = @minimumTaskDistance;
-% optimalSolution = optimal_control.solveOptimalTrajectory(target_position);
-% toc(start);
-% optimal_control.showResults(optimalSolution, target_position, 'Minimal Task Distance');
-% disp("Press space to continue..."); pause();
+start = tic; 
+optimal_control.nlSolver.Optimization.CustomCostFcn = @minimumTaskDistance;
+optimalSolution = optimal_control.solveOptimalTrajectory(target_position);
+toc(start);
+optimal_control.showResults(optimalSolution, target_position, 'Minimal Task Distance');
+disp("Press space to continue..."); pause();
 
 %% Task 3b: Minimum joint distance 
 start = tic; 
