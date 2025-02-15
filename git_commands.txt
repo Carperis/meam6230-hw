@@ -1,0 +1,17 @@
+git remote add upstream https://github.com/ORIGINAL_OWNER/ORIGINAL_REPO.git
+git fetch upstream
+git checkout main
+git rebase upstream/main
+# Resolve conflicts if needed
+git push --force-with-lease origin main
+
+Soft Reset (keeps changes in the working directory):
+git reset --soft <commit-hash>
+
+Mixed Reset (keeps changes in the working directory but unstages them):
+git reset --mixed <commit-hash>
+
+Hard Reset (discards all changes and resets to the specified commit):
+git reset --hard <commit-hash>
+
+You can find the commit hash using git log
