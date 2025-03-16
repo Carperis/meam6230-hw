@@ -1,4 +1,4 @@
-function [x xd t xT x_obs]=Simulation(x0,xT,fn_handle,varargin)
+function [x, h_s]=external_Simulation(x0,xT,fn_handle,varargin)
 %
 % This function simulates motion that were learnt using SEDS, which defines
 % a motins as a nonlinear time-independent asymptotically stable dynamical
@@ -154,7 +154,8 @@ end
 i=1;
 while true
     %Finding xd using fn_handle.
-    xd(:,i,:)=reshape(fn_handle(squeeze(x(:,i,:))-XT),[d 1 nbSPoint]);
+%     xd(:,i,:)=reshape(fn_handle(squeeze(x(:,i,:))-XT),[d 1 nbSPoint]);
+    xd(:,i,:)=reshape(fn_handle(squeeze(x(:,i,:))-XT,t(i)),[d 1 nbSPoint]);
     
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     % This part if for the obstacle avoidance module
