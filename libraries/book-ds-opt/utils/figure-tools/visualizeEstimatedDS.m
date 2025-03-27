@@ -25,7 +25,7 @@ end
 if plot_repr
     opt_sim = [];
     opt_sim.dt    = 0.005;   
-    opt_sim.i_max = 10000;
+    opt_sim.i_max = 1000;
     opt_sim.tol   = 0.005;
     opt_sim.plot  = 0;
     [x_sim, ~]    = Simulation(x0_all ,[],ds_fun, opt_sim);

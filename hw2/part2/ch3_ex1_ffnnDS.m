@@ -74,10 +74,10 @@ tStart = cputime;
 % ds_neuralNet  =  feedforwardnet(M*3);
 
 % 2 hidden layers
-ds_neuralNet  =  feedforwardnet([M*3 M*2]);
+% ds_neuralNet  =  feedforwardnet([M*3 M*2]);
 
 % 3 hidden layers
-% ds_neuralNet  =  feedforwardnet([M*5 M*3 M*2]);
+ds_neuralNet  =  feedforwardnet([M*5 M*3 M*2]);
 
 %% Train network using Levenberg-Marquardt Back-Propagation
 [ds_neuralNet,tr] = train(ds_neuralNet, Xi_ref, Xi_dot_ref);

@@ -44,7 +44,7 @@ ds_seds = @(x) A*x + b;
 % Simulate DS starting from random points
 x0 = rand(3,10)-[1; 0.5; 0.5];
 opt_sim = [];
-opt_sim.dt    = 0.005;  % Integration timestep
+opt_sim.dt    = 0.5;  % Integration timestep
 opt_sim.i_max = 10000;  % Maximum number of iterations
 opt_sim.tol   = 1e-3;   % Maximum final velocity at the attractor [m/s]
 opt_sim.plot  = 1;

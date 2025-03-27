@@ -91,7 +91,7 @@ if do_ms_bic
 else
     % Select manually the number of Gaussian components
     % Should be at least K=2, so that one is placed on around the attractor
-    nb_gaussians = 2;
+    nb_gaussians = 4;
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -133,7 +133,7 @@ options.tol_stopping  = 10^-10;   % A small positive scalar defining the stopppi
                                   % tolerance for the optimization solver [default: 10^-10]
 options.max_iter      = 100;      % Maximum number of iteration for the solver [default: i_max=1000]
 options.objective     = 'likelihood';  % 'mse'|'likelihood'
-% options.objective     = 'mse';    % 'mse'|'likelihood'
+options.objective     = 'mse';    % 'mse'|'likelihood'
 sub_sample            = 1;        % sub-sample trajectories by this factor
 
 % Running SEDS optimization solver

@@ -37,7 +37,7 @@ addpath(genpath(fullfile(filepath, '..','..', 'libraries','book-thirdparty')));
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Choose to draw data (true) or load dataset (false)
-draw_data = false;
+draw_data = true;
 
 if draw_data
     %  Step 1 - OPTION 1 (DATA DRAWING): Draw 2D Dataset with GUI %%
@@ -110,7 +110,7 @@ else % For Hand-drawn dataset
     else 
      sub_sample = 2;
     end
-    l_sensitivity = 5;
+     l_sensitivity = 5;
 end
 
 est_options.sub_sample       = sub_sample;
@@ -182,7 +182,8 @@ if constr_type == 0 || constr_type == 1
 else
     % P-matrix learning (Data shifted to the origin)
     % Assuming origin is the attractor (optimization works better generally)
-    [Vxf] = learn_wsaqf(Data_sh);
+    % [Vxf] = learn_wsaqf(Data_sh);
+    [Vxf] = learn_wsaqf(Data);
     P_opt = Vxf.P;
     fprintf('P matrix pre-estimated.\n');
 end

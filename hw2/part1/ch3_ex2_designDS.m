@@ -33,15 +33,19 @@ addpath(genpath(fullfile(filepath, '..', '..', 'libraries', 'book-ds-opt')));
 % as well as non-linear systems with a constant gamma functions
 % ds_case = 1: xdot = A(x-x*)
 % ds_case = 2: xdot = (gamma_1A_1 + gamma_2A_2)(x-x*)
-ds_case = 1; 
+ds_case = 2; 
 
 switch ds_case
     case 1
         % Here you can design an A matrix for a linear DS of the form 
         % xdot = A(x-x*) with x* at the origin
         
-        A = [-1 0; 0 -1];  % <=== Modify this matrix!
-        P = [1 0;   0 1]; % <=== Modify this matrix!         
+        % A = [-2 1; 1 -2]; % <=== Modify this matrix!
+        % P = [1 0;   0 1]; % <=== Modify this matrix!
+        A = [-1 0; 0 -1]; % Ex2a
+        P = [1 0;   0 1]; % Ex2a
+        A = [-2 1; 1 -2]; % Ex2b
+        P = [1 0;   0 1]; % Ex2b
         
         % Check GAS conditions
         A_symm_eigs = checkGAS_QLF(A);
@@ -59,9 +63,15 @@ switch ds_case
         % which yields an unstable system
         gamma1 = 0.5;
         gamma2 = 0.5;
-        A1 = [-1 -10; 1 -1];
-        A2 = [-1 1; -10 -1];
-        P = [1 0; 0 1];
+        % A1 = [-1 -10; 1 -1]; % <=== Modify this matrix!
+        % A2 = [-1 1; -10 -1]; % <=== Modify this matrix!
+        % P = [1 0; 0 1]; % <=== Modify this matrix!
+        A1 = [-2 1; -1 -3]; %Ex3
+        A2 = [-1 -1; 2 -2]; %Ex3
+        P = [1 0; 0 1]; %Ex3
+        A1 = [-1/2 1; -1 -1/2]; %Ex4
+        A2 = [-1/2 -1; 1 -1/2]; %Ex4
+        P = [2 0; 0 2]; %Ex4
 
         % constant weighted sum of two matrices
         A_sum = gamma1*A1 + gamma2*A2;

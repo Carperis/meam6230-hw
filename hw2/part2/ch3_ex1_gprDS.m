@@ -71,7 +71,7 @@ epsilon         = 0.1;
 if draw_data
   rbf_var        = 0.25;
 else
-  rbf_var        = 5;
+  rbf_var        = 3;
 end
 
 % Input/output data (x-coordinate)
@@ -89,7 +89,7 @@ ds_gpr          = @(x)([ds_gpr_x(x)'; ds_gpr_y(x)']);
 %%%%%%%%%%%%%%    Plot Resulting DS  %%%%%%%%%%%%%%%%%%%
 % Fill in plotting options
 ds_plot_options = [];
-ds_plot_options.sim_traj  = 0;            % To simulate trajectories from x0_all
+ds_plot_options.sim_traj  = 1;            % To simulate trajectories from x0_all
 ds_plot_options.x0_all    = x0_all;       % Intial Points
 
 disp('Visualization loading, be patient...');
