@@ -79,7 +79,7 @@ plot_ds_h_modulation(X, Y, x_dot, y_dot, gamma, target, ...
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % See Lecture 8 Slide 15
 x0    = [2.5; 1]; % Unstable point coordinate
-sigma = 0.5; % Kernel width for effect of modulator
+sigma = 2; % Kernel width for effect of modulator
 
 for i=1:nb_gridpoints
     for j=1:nb_gridpoints

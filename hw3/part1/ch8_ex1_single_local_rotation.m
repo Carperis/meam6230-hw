@@ -54,12 +54,12 @@ Target = []; % attractor x^*, Default Target = [0, 0]'
 
 %%%% Define Parameters to construct locally rotating modulation matrix
 % M(\phi(x)) with \phi(x) = h(x)\theta and h(x) = exp(-1/(2*ls^2)||x-c||^2)
-Theta     = [];   % Desired Rotation Angle (rad), Default will be a random angle
-ls        = [];  % Desired Influence Region, Default will be ls=0.5
+Theta     = pi/2;   % Desired Rotation Angle (rad), Default will be a random angle
+ls        = 1;  % Desired Influence Region, Default will be ls=0.5
 
 % When modulation_centr c is not defined you will see the interactive GUI
 % to define it, to set it manually you can define a (2 x 1) vector
-c = [];
+c = [1; 1];
 
 % Run interactive GUI to visualize a locally rotating modulation
 interactive_locally_rotating_dynamical_systems(Target, ls, Theta, A, c)

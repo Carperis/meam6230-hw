@@ -52,8 +52,24 @@ v = zeros(dim,nX);
 f = A*(x-target);
 for j=1:nX
     % Construct modulation matrix
-    M = eye(2); %<<== Construct your modulation matrix here
-   
+    % M = eye(2); %<<== Construct your modulation matrix here
+    % M = [-1 0; 0 -1]; %Ex4a
+    % M = [-1 0; 0 1]; %Ex4b
+
+    sigma = 1;
+    radius = 3;
+    diff = radius - norm(x(:,j));
+    gamma = exp(-(1/(sigma)^2)*(diff)^2);
+    theta = sign(diff) * pi/2;
+    M = sign(diff)*[cos(gamma*theta) -sin(gamma*theta); sin(gamma*theta) cos(gamma*theta)]; %Ex4c
+
+    % sigma = 1;
+    % radius = 3;
+    % diff = norm(x(:,j)) - radius;
+    % gamma = exp(-(1/(sigma)^2)*(diff)^2);
+    % theta = sign(diff) * pi/2;
+    % M = sign(diff)*[cos(gamma*theta) -sin(gamma*theta); sin(gamma*theta) cos(gamma*theta)]; %Ex4d
+
     % Modulated dyamics
     v(:,j) = M*f(:,j);
 end

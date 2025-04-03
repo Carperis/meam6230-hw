@@ -28,4 +28,26 @@ function [v] = external_stable_limit_cycle(x, s, ds_fun, x0, sigma, radius, thet
     %%%%%%%%%%%%%%%%%%%%%%%%%
     % Fill student code here
     %%%%%%%%%%%%%%%%%%%%%%%%%
+
+    % Get external activation level
+    h_s = external_activation(s, T_start, decay_rate);
+    
+    for k = 1:K
+        % Calculate distance from x(:,k) to x0
+        dx = x(:,k) - x0;
+        dist = norm(dx);
+        
+        % Compute activation function gamma (Gaussian centered at radius)
+        gamma = exp(-(dist - radius)^2 / sigma^2);
+        
+        % Modulate by external activation
+        phi = theta * gamma * h_s;
+        
+        % Create rotation matrix
+        M = [cos(phi), -sin(phi); 
+             sin(phi),  cos(phi)];
+        
+        % Modulate the velocity
+        v(:,k) = M * xd(:,k);
+    end
 end

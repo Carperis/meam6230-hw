@@ -24,5 +24,22 @@ function [h, v] = locally_rotate_2d(x, xd, theta, ls, c)
     % Fill student code here
     %%%%%%%%%%%%%%%%%%%%%%%%%
 
+    % Compute the squared distance between x and c
+    dx = x - c;
+    squared_norm = dx' * dx;  % Equivalent to sum(dx.^2)
+    
+    % Calculate the activation function h(x)
+    h = exp(-squared_norm / (2 * ls^2));
+    
+    % Compute the rotation angle phi(x) = h(x) * theta
+    phi = theta * h;
+    
+    % Construct the 2D rotation matrix
+    M = [cos(phi), -sin(phi); 
+         sin(phi),  cos(phi)];
+    
+    % Modulate the velocity using the rotation matrix
+    v = M * xd;
+
 end
 

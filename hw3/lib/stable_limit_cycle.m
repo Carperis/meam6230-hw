@@ -19,5 +19,22 @@ function [gamma, v] = stable_limit_cycle(x, xd, x0, sigma, radius, theta)
     %%%%%%%%%%%%%%%%%%%%%%%%%
     % Fill student code here
     %%%%%%%%%%%%%%%%%%%%%%%%%
+
+     % Calculate distance from x to x0
+    dx = x - x0;
+    dist = norm(dx);
+    
+    % Compute activation function gamma (Gaussian centered at radius)
+    gamma = exp(-(dist - radius)^2 / sigma^2);
+    
+    % Compute rotation angle (clockwise when theta is positive)
+    phi = theta * gamma;
+    
+    % Create rotation matrix
+    M = [cos(phi), -sin(phi); 
+         sin(phi),  cos(phi)];
+    
+    % Modulate the velocity
+    v = M * xd;
 end
 

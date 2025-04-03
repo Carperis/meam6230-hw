@@ -17,4 +17,16 @@ v     = zeros(2,M);
     %%%%%%%%%%%%%%%%%%%%%%%%%
     % Fill student code here
     %%%%%%%%%%%%%%%%%%%%%%%%%
+
+    for m = 1:M
+        % Create scaling matrix (1 + kappa) along diagonal
+        S = (1 + kappa(m)) * eye(2);
+        
+        % Create rotation matrix
+        M = [cos(phi(m)), -sin(phi(m));
+             sin(phi(m)),  cos(phi(m))];
+        
+        % Combined modulation: scale first, then rotate
+        v(:,m) = M * S * xd(:,m);
+    end
 end

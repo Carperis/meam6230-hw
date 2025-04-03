@@ -45,7 +45,7 @@ ds_lin = @(x) lin_ds(x,target, A);
 
 % Select Multiple Modulation Strategy
 multi_strategy = 0; % 0: Product of modulations, 1: Custom partitioned modulations
-ls_all = 3.5;
+ls_all = 2;
 
 % Plot DS
 f = figure('Color', [1 1 1]); 

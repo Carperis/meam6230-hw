@@ -16,4 +16,15 @@ function [h_s] = external_activation(s, T_start, decay_rate)
     %%%%%%%%%%%%%%%%%%%%%%%%%
     % Fill student code here
     %%%%%%%%%%%%%%%%%%%%%%%%%
+
+    if s < T_start
+        h_s = 1;  % Full activation before T_start
+    else
+        % Exponential decay after T_start
+        h_s = exp(-decay_rate * (s - T_start));
+        % h_s = 0;
+    end
+    
+    % Ensure h_s stays in [0,1]
+    h_s = max(0, min(1, h_s));
 end

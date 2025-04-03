@@ -91,7 +91,7 @@ ds_lin = @(x) lin_ds(x,target, A);
 
 % Define time when you want to de-activate the limit cycle modulation at T_start sec
 dt          = 0.01;       % dt used for simulation and decay rate
-T_start     = 0.5;        % second (time to start deactivation)
+T_start     = 1;        % second (time to start deactivation)
 decay_rate  = 1/(20*dt);  % Hz (using dt above)
 
 

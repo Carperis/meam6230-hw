@@ -17,5 +17,19 @@ function [gamma, v] = unstable_point(x, xd, x0, sigma)
     %%%%%%%%%%%%%%%%%%%%%%%%%
     % Fill student code here
     %%%%%%%%%%%%%%%%%%%%%%%%%
+    
+    % Calculate distance from x to x0
+    dx = x - x0;
+    dist = norm(dx);
+    
+    % Compute activation function gamma
+    gamma = exp(-dist^2 / sigma^2);
+    
+    % Create destabilizing matrix (flip x-component)
+    M = [1 - 2*gamma, 0; 
+        0, 1 - 2*gamma];
+    
+    % Modulate the velocity (creates repulsion in x-direction)
+    v = M * xd;
 end
 
